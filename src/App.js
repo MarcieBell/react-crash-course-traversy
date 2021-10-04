@@ -1,12 +1,11 @@
 import React from "react";
+import "./style/style.css";
+import Header from "./components/Header";
 
 function App() {
-  // const name = "Aashish";
-  // const showName = true;
   return (
-    <div className="App">
-      {/* <h1>Hello, World!</h1>
-      <>Hello, {showName?name:"World"}!</> */}
+    <div className="app border border-dark">
+      <Header/>
     </div>
   );
 }
