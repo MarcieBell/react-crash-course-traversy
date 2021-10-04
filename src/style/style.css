@@ -1,0 +1,27 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.app{
+    width:50vw;
+    border-radius: 7px;
+    box-shadow: 0px 10px 10px -9.2px;
+}
+
+@media screen and (max-width: 900px) {
+    .app{
+        width: 50vw;
+    }
+}
+@media screen and (max-width: 750px) {
+    .app{
+        width: 70vw;
+    }
+}
+@media screen and (max-width: 500px) {
+    .app{
+        width: 90vw;
+    }
+}
