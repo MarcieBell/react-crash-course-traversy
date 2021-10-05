@@ -5,7 +5,7 @@ import React from 'react';
  * @param {*} param0 : GETTING BUTTON STYLE AND CHILD COMPONENT 
  * @returns <Button/> (JSX)
  */
-const Button = ({children, classVal}) => {
+const Button = ({ children, classVal }) => {
 
     //COMPONENT VALUE
     return (
