@@ -1,6 +1,7 @@
+/* IMPORTING FONT */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,300&display=swap");
 
-/*  */
+/* STYLING BODY TAG */
 body {
   margin: 0px;
   display: flex;
@@ -9,21 +10,28 @@ body {
   justify-content: center;
 }
 
-/*  */
+/* APP COMPONENT */
 .app {
   width: 50vw;
+  margin: 100px auto;
   font-size: 16px;
   border-radius: 7px;
   box-shadow: 0px 10px 10px -9.2px;
   font-family: "Poppins", sans-serif;
 }
 
-/*  */
+/* TASK COMPONENT */
 .task {
   background-color: lightgrey;
+  cursor: pointer;
 }
 
-/*  */
+/* CONTAINER CONTAINING FORM INPUT */
+.form-input{
+  margin-bottom: 10px;
+}
+
+/* CSS MEDIA QUERY */
 @media screen and (max-width: 900px) {
   .app {
     width: 50vw;
