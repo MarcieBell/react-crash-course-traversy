@@ -9,15 +9,16 @@ import React, { useState } from 'react'
  */
 const Tasks = (props) => {
 
+    //GETTING TASKS PROPS PASSED DOWN
     const tasks = props.tasks;
 
-    //
+    //<Tasks/>(JSX)
     return (
         <>
             {
                 //RENDERING AN ARRAY OF TASK COMPONENTS
                 tasks.map((element, index, array) => {
-                    return <Task key={element.id} properties={element} onDelete={props.onDelete} />;
+                    return <Task key={element.id} properties={element} onDelete={props.onDelete} onToggle={props.onToggle}/>;
                 })
             }
         </>
