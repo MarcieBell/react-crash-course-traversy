@@ -2,4 +2,4 @@
 
 Learning the fundamentals of React.js by making a simple task tracking application (w/o persistence).
 
-![Task tracker](https://i.ibb.co/gMMYKcX/react-task-tracker.gif)
+![Task tracker](https://i.ibb.co/BVYPLW6/react-tasktracker.png)
