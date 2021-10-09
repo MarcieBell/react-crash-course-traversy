@@ -9,19 +9,16 @@ import PropTypes from 'prop-types';
  * @param {Object} props - PROPS OBJECT
  * @returns : <Header/> COMPONENT JSX VALUE
  */
-const Header = (props) => {
+const Header = ({title, onAdd}) => {
 
     //STYLE OBJECT
     const Style = {fontWeight: "900",};
 
-    //METHODS
-    const onClick = (event) =>{};
-
     //COMPONENT VALUE
     return (
         <div style={Style} className="mx-auto d-flex justify-content-between align-items-center">
-            <h1 className="fw-bolder">{props.title}</h1>
-            <Button onClick={onClick} classVal="btn btn-dark">Add</Button>
+            <h1 className="fw-bolder">{title}</h1>
+            <button onClick={onAdd} className="btn btn-dark">Add</button>
         </div>
     );
 }
