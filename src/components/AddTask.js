@@ -47,11 +47,11 @@ const AddTask = ({tasks, setTasks}) => {
         <>
             <form className="m-2 p-2">
                 <div className="form-input">
-                    <label htmlFor="task-input" className="fw-bolder">Enter task</label>
+                    <label htmlFor="task-input" className="fw-bolder mb-1">Enter task</label>
                     <input value={task} onChange={taskInput} name="task-input" id="task-input" className="task-input form-control" type="text" placeholder="Enter task" required={true}/>
                 </div>
                 <div className="form-input">
-                    <label htmlFor="day-time" className="fw-bolder">Enter day & time</label>
+                    <label htmlFor="day-time" className="fw-bolder mb-1">Enter day & time</label>
                     <input value={dateTime} onChange={dateTimeInput} name="day-time" id="day-time" className="day-time form-control" type="text" placeholder="Enter day & time" required={true}/>
                 </div>
                 <div className="form-input d-flex align-items-center">
