@@ -18,7 +18,7 @@ const Tasks = (props) => {
             {
                 //RENDERING AN ARRAY OF TASK COMPONENTS
                 tasks.map((element, index, array) => {
-                    return <Task key={element.id} properties={element} onDelete={props.onDelete} onToggle={props.onToggle}/>;
+                    return <Task key={element.id} properties={element} onDelete={props.onDelete} onToggle={props.onToggle} />;
                 })
             }
         </>

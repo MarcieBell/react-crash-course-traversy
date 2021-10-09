@@ -19,7 +19,7 @@ function App() {
     const deleteTask = (id) => {
         tasks.filter((task) => {
             setTasks(tasks.filter((task, index, array) => {
-                if(task.id!==id)
+                if (task.id !== id)
                     return task;
             }));
         });
@@ -31,24 +31,24 @@ function App() {
      * @param {*} id : ID OF THE TOGGLED TASK
      * @returns : UNDEFINED
      */
-    const toggleTask = (id) =>{
+    const toggleTask = (id) => {
         setTasks(
             tasks.map((task) => {
-                if(task.id === id)  task.reminder = !task.reminder;                    
+                if (task.id === id) task.reminder = !task.reminder;
                 return task
             }
-        ));
+            ));
     };
 
 
     return (
         <div className="app border border-dark p-3">
-            <Header onAdd={()=>setShowTaskForm(!showTaskForm)}/>
-            { showTaskForm && <AddTask tasks={tasks} setTasks={setTasks}/> }
+            <Header onAdd={() => setShowTaskForm(!showTaskForm)} />
+            {showTaskForm && <AddTask tasks={tasks} setTasks={setTasks} />}
             {
-                tasks.length>0?
-                <Tasks tasks={tasks} setTasks={setTasks} onDelete={deleteTask} onToggle={toggleTask} className="mt-3"/>:
-                <div className="m-2">No tasks to show</div>
+                tasks.length > 0 ?
+                    <Tasks tasks={tasks} setTasks={setTasks} onDelete={deleteTask} onToggle={toggleTask} className="mt-3" /> :
+                    <div className="m-2">No tasks to show</div>
             }
         </div>
     );

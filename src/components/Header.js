@@ -9,10 +9,10 @@ import PropTypes from 'prop-types';
  * @param {Object} props - PROPS OBJECT
  * @returns : <Header/> COMPONENT JSX VALUE
  */
-const Header = ({title, onAdd}) => {
+const Header = ({ title, onAdd }) => {
 
     //STYLE OBJECT
-    const Style = {fontWeight: "900",};
+    const Style = { fontWeight: "900", };
 
     //COMPONENT VALUE
     return (

@@ -11,7 +11,7 @@ const Task = ({ properties, onDelete, onToggle }) => {
 
     //<Task/>(JSX)
     return (
-        <div onDoubleClick={()=>{ onToggle(properties.id) }} className={`task rounded p-2 m-2 d-flex justify-content-between align-items-center ${properties.reminder?"border-5 border-start border-danger":""}`}>
+        <div onDoubleClick={() => { onToggle(properties.id) }} className={`task rounded p-2 m-2 d-flex justify-content-between align-items-center ${properties.reminder ? "border-5 border-start border-danger" : ""}`}>
             <div>
                 <div className="fw-bolder">{properties.text}</div>
                 <div>{properties.day}</div>
