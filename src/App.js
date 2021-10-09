@@ -8,7 +8,7 @@ function App() {
 
     //TASKS
     const [tasks, setTasks] = useState([]);                           //SETS TASKS STATE
-    const [taskFormState, setTaskFormState] = useState(false);      //SETS TASK FORM STATE
+    const [showTaskForm, setShowTaskForm] = useState(false);          //SETS STATE FOR SHOWING TASK FORM  
 
     /**
      * FUNCTION : deleteTask(id)
@@ -40,10 +40,11 @@ function App() {
         ));
     };
 
+
     return (
         <div className="app border border-dark p-3">
-            <Header taskFormState={taskFormState} setTaskFormState={setTaskFormState}/>
-            {<AddTask tasks={tasks} setTasks={setTasks} />}
+            <Header onAdd={()=>setShowTaskForm(!showTaskForm)}/>
+            { showTaskForm && <AddTask tasks={tasks} setTasks={setTasks}/> }
             {
                 tasks.length>0?
                 <Tasks tasks={tasks} setTasks={setTasks} onDelete={deleteTask} onToggle={toggleTask} className="mt-3"/>:
