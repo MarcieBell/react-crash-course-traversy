@@ -26,7 +26,7 @@ const AddTask = ({ tasks, setTasks }) => {
      * @param {*} event : EVENT OBJECT
      * @returns : UNDEFINED
      */
-    const addTask = (event) => {
+    const addTask = async (event) => {
         event.preventDefault();                 //PREVENTS SUBMITTING TO A PAGE
         if (task && dateTime) {                   //WHEN FORM INPUT IS LEGIT
             setErrorState(false);               //NOT DISPLAYING THE ERROR COMPONENT
@@ -37,6 +37,13 @@ const AddTask = ({ tasks, setTasks }) => {
                 day: dateTime,
                 reminder: reminder
             };
+            await fetch(
+                "http://localhost:5000/tasks",
+                { 
+                    "method": "POST",
+                    "headers": {"Content-Type": "application/json"},
+                    "body": JSON.stringify(taskObj)
+                });
             setTasks([...tasks, taskObj]);      //SETTING TASK VALUE
 
             //SETTING FORM VALUE BACK TO DEFAULT
