@@ -1,6 +1,5 @@
 //IMPORTING PACKAGES
 import React from 'react';
-import Button from "./Button";
 import PropTypes from 'prop-types';
 
 /**
@@ -9,16 +8,16 @@ import PropTypes from 'prop-types';
  * @param {Object} props - PROPS OBJECT
  * @returns : <Header/> COMPONENT JSX VALUE
  */
-const Header = ({ title, onAdd }) => {
+const Header = ({ title, onAdd, showAddForm }) => {
 
     //STYLE OBJECT
     const Style = { fontWeight: "900", };
-
+    
     //COMPONENT VALUE
     return (
         <div style={Style} className="mx-auto d-flex justify-content-between align-items-center">
             <h1 className="fw-bolder">{title}</h1>
-            <button onClick={onAdd} className="btn btn-dark">Add</button>
+            <button onClick={onAdd} className="btn btn-dark">{showAddForm?"Close":"Add"}</button>
         </div>
     );
 }
