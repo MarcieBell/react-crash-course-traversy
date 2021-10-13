@@ -1,14 +1,37 @@
 import "./style/style.css";
 import Tasks from "./components/Tasks";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from "./components/Header";
 import AddTask from "./components/AddTask";
 
 function App() {
 
-    //TASKS
+    //STATES
     const [tasks, setTasks] = useState([]);                           //SETS TASKS STATE
     const [showTaskForm, setShowTaskForm] = useState(false);          //SETS STATE FOR SHOWING TASK FORM  
+
+    //HOOKS
+    //USE EFFECT HOOK DEALS WITH SIDE-EFFECTS
+    useEffect(()=>{  
+        const getTasks = async () =>{                                //GETTING FETCHED TASKS
+            const getData =  await fetchTasks();    
+            setTasks(getData);
+        };
+        getTasks();
+    },[]);
+
+    //METHODS
+    /**
+     * FUNCTION : FETCH TASK LIST FROM THE DATABASE
+     * FUNCTIONALITY : FETCHING TASKS FROM THE FAKE API
+     * @param : UNDEFINED
+     * @returns : TASK LIST
+     */
+    async function fetchTasks () {
+        const res = await fetch("http://localhost:5000/tasks");
+        const data = await res.json();
+        return data;
+    };
 
     /**
      * FUNCTION : deleteTask(id)
@@ -43,7 +66,7 @@ function App() {
 
     return (
         <div className="app border border-dark p-3">
-            <Header onAdd={() => setShowTaskForm(!showTaskForm)} />
+            <Header onAdd={() => setShowTaskForm(!showTaskForm)} showAddForm={showTaskForm}/>
             {showTaskForm && <AddTask tasks={tasks} setTasks={setTasks} />}
             {
                 tasks.length > 0 ?
