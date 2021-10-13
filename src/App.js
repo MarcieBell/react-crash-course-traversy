@@ -27,10 +27,17 @@ function App() {
      * @param : UNDEFINED
      * @returns : TASK LIST
      */
-    async function fetchTasks () {
-        const res = await fetch("http://localhost:5000/tasks");
-        const data = await res.json();
-        return data;
+    async function fetchTasks (id) {
+        if(!id){
+            const res = await fetch("http://localhost:5000/tasks");
+            const data = await res.json();
+            return data;
+        }
+        else{
+            const res = await fetch(`http://localhost:5000/tasks/${id}`);
+            const data = await res.json();
+            return data;
+        }
     };
 
     /**
@@ -39,7 +46,8 @@ function App() {
      * @param {*} id : ID OF THE TASK WHICH NEEDS TO BE DELETED
      * @returns : UNDEFINED
      */
-    const deleteTask = (id) => {
+    const deleteTask = async (id) => {
+        await fetch(`http://localhost:5000/tasks/${id}`, {"method":"DELETE",});
         tasks.filter((task) => {
             setTasks(tasks.filter((task, index, array) => {
                 if (task.id !== id)
@@ -54,7 +62,16 @@ function App() {
      * @param {*} id : ID OF THE TOGGLED TASK
      * @returns : UNDEFINED
      */
-    const toggleTask = (id) => {
+    const toggleTask = async (id) => {
+        let taskObj = await fetchTasks(id);
+        taskObj = {...taskObj, "reminder": !taskObj.reminder};
+        await fetch(
+            `http://localhost:5000/tasks/${id}`,
+            { 
+                "method": "PUT",
+                "headers": {"Content-Type": "application/json"},
+                "body": JSON.stringify(taskObj)
+            });
         setTasks(
             tasks.map((task) => {
                 if (task.id === id) task.reminder = !task.reminder;
