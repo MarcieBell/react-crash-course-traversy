@@ -1,8 +1,12 @@
 import "./style/style.css";
 import Tasks from "./components/Tasks";
-import React, { useState, useEffect } from 'react';
+import About from "./components/About";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import AddTask from "./components/AddTask";
+import React, { useState, useEffect } from 'react';
+// import {BrowserRouter as Router, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function App() {
 
@@ -82,15 +86,30 @@ function App() {
 
 
     return (
-        <div className="app border border-dark p-3">
-            <Header onAdd={() => setShowTaskForm(!showTaskForm)} showAddForm={showTaskForm}/>
-            {showTaskForm && <AddTask tasks={tasks} setTasks={setTasks} />}
-            {
-                tasks.length > 0 ?
-                    <Tasks tasks={tasks} setTasks={setTasks} onDelete={deleteTask} onToggle={toggleTask} className="mt-3" /> :
-                    <div className="m-2">No tasks to show</div>
-            }
-        </div>
+        <Router>
+            <div className="app border border-dark p-3">
+                <Header onAdd={() => setShowTaskForm(!showTaskForm)} showAddForm={showTaskForm}/>
+                {showTaskForm && <AddTask tasks={tasks} setTasks={setTasks} />}                   
+                <Route  
+                    path="/" exact render={
+                        (props)=>{
+                            {
+                                return (
+                                    <>
+                                        {
+                                            tasks.length > 0 ? 
+                                            <Tasks tasks={tasks} setTasks={setTasks} onDelete={deleteTask} onToggle={toggleTask} className="mt-3" /> : 
+                                            <div className="m-2">No tasks to show</div>
+                                        }
+                                        <Footer/>
+                                    </>
+                                ); 
+                            };
+                        }
+                    }/>
+                <Route path="/about" component={About}/>
+            </div>
+        </Router>
     );
 }
 
