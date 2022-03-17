@@ -16,4 +16,5 @@ The Objective of doing this course is to understand the fundamental concepts rel
 
 ## Screenshots
 1. Task Tracking App:
+
 ![Task Tracker App](https://i.ibb.co/BVYPLW6/react-tasktracker.png)
