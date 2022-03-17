@@ -1,4 +1,4 @@
-# React in 3.5 Hours
+# React Crash Course (2021)
 
 ## Course details
 **Name:** React Crash Course (2021)<br/>
@@ -15,5 +15,5 @@ The Objective of doing this course is to understand the fundamental concepts rel
 3. `/src/App.js` component contains states and side effects to load saved task data, amongst other things
 
 ## Screenshots
-Task Tracking App:
+1. Task Tracking App:
 ![Task Tracker App](https://i.ibb.co/BVYPLW6/react-tasktracker.png)
